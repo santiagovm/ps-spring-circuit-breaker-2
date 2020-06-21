@@ -1,0 +1,38 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.1.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'com.vasquezhouse'
+version = "${rootProject.appVersion}"
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+
+	implementation 'io.micrometer:micrometer-core:1.5.1'
+	implementation 'io.micrometer:micrometer-registry-prometheus:1.5.1'
+
+	implementation "io.github.resilience4j:resilience4j-micrometer:${rootProject.resilience4jVersion}"
+	implementation "io.github.resilience4j:resilience4j-spring-boot2:${rootProject.resilience4jVersion}"
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${rootProject.springCloudVersion}"
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
