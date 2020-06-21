@@ -13,7 +13,7 @@ public class NewsController {
     @GetMapping("/news")
     public String getNews() {
         String weather = weatherService.getWeather();
-        return String.format("the weather is: [%s]", weather);
+        return String.format("the weather is: [hystrix] [%s]", weather);
     }
 
     private final WeatherService weatherService;
