@@ -1,0 +1,4 @@
+ext {
+    appVersion = '0.0.1-SNAPSHOT'
+    springCloudVersion = 'Hoxton.SR5'
+}
