@@ -7,6 +7,7 @@ This is a Proof-of-Concept of the Circuit Breaker pattern using Spring Cloud Net
 - `8081 | weather-server`: Eureka Client, exposes REST endpoint `/weather`
 - `8082 | news-server-hystrix`: Eureka Client, exposes REST endpoint `/news`. Calls `/weather` and protects with Hystrix-based circuit breaker
 - `8083 | dashboard-hystrix`: Hystrix Dashboard, exposed at `/hystrix` 
+- `8084 | traffic-server`: Eureka Client, exposes REST endpoint `/traffic`
 
 ## running application
 
